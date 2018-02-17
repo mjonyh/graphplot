@@ -63,21 +63,21 @@ print("Experiment conducted by: ", comments[0], " for sample: ", comments[2], ".
 print("Experiment conducted on: ", comments[3])
 data = readData("exp_data.hrs")
 
-#print(data["angle"], data["p20"])
+
+data_marker = ['o','^','s','p','*','h','H','D','d','1','','']
 
 ax = plt.subplot(111, projection='polar')
 x_tag = 0;
+num = 0
 for col in data:
     if (x_tag == 0):
         x_axis = col
         data[x_axis] = data[x_axis]*2*np.pi/360.
         x_tag = 1
     else:
-        ax.plot(data[x_axis], data[col], "o", label=col)
+        ax.plot(data[x_axis], data[col], data_marker[num], label=col, color='k')
+        num += 1
 
-#data["angle"] = data["angle"]*2*np.pi/360.
-
-#ax.plot(data["angle"], data["p20"])
 #plt.xlabel("Angle in Degree")
 #plt.ylabel("Output power in mW")
 plt.legend(loc=4)
