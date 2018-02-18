@@ -56,13 +56,16 @@ def readData(fname):
 
     return data
 
+
+'Fetch the comments section'
 comments = readHeader("exp_data.hrs")
 
 print("Experiment conducted by: ", comments[0], " for sample: ", comments[2], ".")
-
 print("Experiment conducted on: ", comments[3])
-data = readData("exp_data.hrs")
 
+
+'Fetch the data'
+data = readData("exp_data.hrs")
 
 data_marker = ['o','^','s','p','*','h','H','D','d','1','','']
 
